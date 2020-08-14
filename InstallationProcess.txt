@@ -1,0 +1,42 @@
+1. Check Version of Rust:
+rustc -V
+
+2. Itmdump
+ITM -> Instrumentation Trace Macrocell (communication Protocol)
+For installing itmdump you need to follow the steps below:
+cargo install itm --vers 0.3.1
+Verifying Installation:
+itmdump -v
+
+
+3. Before Installing binary utilities, first we have to install llvm tools
+rustup component add llvm-tools-preview
+After successful installation of llvm, we will install binary utilities.
+cargo install cargo-b
+after successful insatllation, verify it
+cargo size -- -version
+
+
+4. In Linux following installation are required
+1.GDB, 2. OpenOCD, 3. Minicom
+sudo apt-get install gdb-multiarch minicom openocd
+
+5. Linux: Optional Packages
+1. Bluez, 2.Rfkill
+sudo apt-get install bluez rfkill
+
+
+6. Linux: udev rules
+#change directory to /etc/udev/rules.d/
+cd /etc/udev/rules.d/
+#touch 99-ftdi.rules
+#nano 99-ftdi.rules
+cat 99.ftdi.rules
+# FT232 -USB <-> Serial Converter
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE:="0666"
+
+
+
+
+
+
