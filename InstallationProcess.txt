@@ -36,6 +36,13 @@ cat 99.ftdi.rules
 ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE:="0666"
 
 
+7. lsub | grep -i stm
+ls -l /dev/bus/usb/004/003
+sudo udevadm control --reload-rules
+cd /tmp
+openocd -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
+
+
 
 
 
